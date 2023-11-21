@@ -1,4 +1,6 @@
 # IDEs
+.vs
+.idea
 
 # NodeJS
 node_modules/
