@@ -11,34 +11,39 @@
 
 ### Installation
 1. Download and install [NodeJS](https://nodejs.org/en/download)
-2. Create a new NodeJS Playwright project with all dependencies with `npm init playwright`
+2. Download and install MS Visual Studio Code
+3. Install extension `Playwright Test for VSCode`
+4. Create a new NodeJS Playwright project with all dependencies with `npm init playwright`
+
 
 
 ### Folder/file structure
 * `node_modules` - folder with all installed dependencies for NodeJS
 * `tests` - folder with tests
     * each test has an extension *.spec.js*.
-    * *example.spec.js* is an example test directly created by Plawright 
-* `tests-examples` - folder with test examples 
-    * *demo-todo-app.spec.js* is an example test containing all methods directly created by Playwright
+    * *playwrightDefaultExample.spec.js* is an example test containing all methods directly created by Playwright
 * `playwright-config.js` - file with Playwright configuration (test directories, browsers, etc.)
 
 
+### Troubleshooting
+* Install multiple browsers when you want to test with multiple browsers, e.g. `npx playwright install firefox webkit`
+* When it fails to launch a browser, it might be because your antivirus has blocked it as a thread
+
 ### Asynchronous vs. Synchronous
 The benefit of JavaScript is that it offers the best of both worlds: Single-thread and multi-thread, blocking and non-blocking. 
-With this flexibility, programmers can write code in a single programming language instead of two—one for synchronous operations and another for asynchronous operations.
+With this flexibility, programmers can write code in a single programming language instead of twoï¿½one for synchronous operations and another for asynchronous operations.
 More details can be found [here](https://www.mendix.com/blog/asynchronous-vs-synchronous-programming/).
 
 #### Synchronous
-Synchronous tasks happen in order — you must finish the first job before moving on to the next.
+Synchronous tasks happen in order ï¿½ you must finish the first job before moving on to the next.
 Synchronous is a blocking architecture, so the execution of each operation depends on completing the one before it.
 Each task requires an answer before moving on to the next iteration.
 
 #### Asynchronous
-Asynchronous is a non-blocking architecture, which means it doesn’t block further execution while one or more operations are in progress.
+Asynchronous is a non-blocking architecture, which means it doesnï¿½t block further execution while one or more operations are in progress.
 With async programming, multiple related operations can run concurrently without waiting for other tasks to complete. 
 
-### Which one is JavaScript
+### Which one is JavaScript?
 JavaScript is by defailt asynchronous non-blocking programming language, which means that multiple commands can be run at the same time.
 That's why we need to use keyword *await* in many cases, to wait until asynchronous operation will be over, so that we can carry on with the next one.
 Every time you use *await* in a function, you need to mark it as *async*.
@@ -53,7 +58,8 @@ test('First test', async ( {page} ) => {
 
 
 ## Test execution
-Plawright tests within a file (methods) are executed sequentially, while test files are executed in parallel.
+Playwright tests within a file (methods) are executed sequentially, while test files are executed in parallel.  
+By default, all tests in all browsers (both specified in file *playwright.config.js*) are being executed, unless specified otherwise.  
 You can use these commands to execute tests:
 * `npx playwright test` - runs the tests specified in *playwright.config.js* configuration
 * `npx playwright test directory/fileName.spec.js` - runs the tests of a specified file
