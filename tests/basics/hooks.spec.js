@@ -16,6 +16,7 @@ const { test, expect } = require('@playwright/test');
  * .slow()    - tests with tripled amount for timeouts
  * .setTimeout(number) - sets a timeout for a test or hooks
  */
+
 const userRole = 'Administrator';
 
 
@@ -23,7 +24,6 @@ test('Playwright assertions test', async ({ page }) => {
   // Simple Playwright test
   expect(true).toBe(true);
 });
-
 
 test.beforeAll('Setup', async () => {   // Title is optional
   console.log('This is executed before all tests');
@@ -101,7 +101,6 @@ test('Test with a timeout', async ({ page }) => {
    * You can use setTimeout in beforeAll() or afterAll() hooks to set up a timeout for these hooks.
    */
   test.setTimeout(60000);
-  // ...
 });
 
 
