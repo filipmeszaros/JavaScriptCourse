@@ -4,6 +4,8 @@ const { test, expect } = require('@playwright/test');
 
 /**
  * Test to show how to use different kind of assertions.
+ * Some expect's does not need await - those not related to UI (simple explanation)
+ * Some expect's needs await - those related to UI (simple explanation)
  */
 test('Playwright assertions test - generic assertions', async ({ page }) => {
   const value = 42;
@@ -13,6 +15,8 @@ test('Playwright assertions test - generic assertions', async ({ page }) => {
     c: true,
   };
 
+
+  // Some expect's does not need await - those not related to UI (simple explanation)
   expect('text').toContain('substring');
   expect(value).toBe(2);                    // Expect value == 2
   expect(value).toBeLessThan(5);            // Expect value < 5

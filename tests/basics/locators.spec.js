@@ -16,5 +16,12 @@ test('Playwright locators test', async ({ page }) => {
   await page.locator('.list-elements').first().click();   // Returns  first element from a list of elements and clicks on it
   await page.locator('.list-elements').nth(1).click();    // Returns second element from a list of elements and clicks on it
   await page.locator('.list-elements').last().click();    // Returns last element from a list of elements and clicks on it
-
+  
+  await page.getByRole('button', { name: 'Sign in' }).click(); // For <button name='Sign in'>
+  await page.getByRole('button', { name: /submit/i }).click(); // For <button> with name containing RegExp "submit"
+  await page.getByLabel('Password').fill('secret');            // For <label>Password</label>
+  await page.getByPlaceholder('FILL THIS').fill('playwright@microsoft.com'); // For <input type="email" placeholder="FILL THIS"/>
+  await page.getByText('Welcome, John').click();               // For <span>Welcome, John</span>
+  await expect(page.getByTitle('Issues count')).toHaveText('25 issues'); // For <span title="Issues count">Something</span>
+  await page.getByTestId('directions').click();                // For <div data-testid="directions">
 });
