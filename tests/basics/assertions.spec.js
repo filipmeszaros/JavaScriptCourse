@@ -4,7 +4,7 @@ const { test, expect } = require('@playwright/test');
 
 /**
  * Test to show how to use different kind of assertions.
- * Some expect's does not need await - those not related to UI (simple explanation)
+ * Some expect's does not need await - those not related to UI or those which needs some action (simple explanation)
  * Some expect's needs await - those related to UI (simple explanation)
  */
 test('Playwright assertions test - generic assertions', async ({ page }) => {
@@ -14,7 +14,6 @@ test('Playwright assertions test - generic assertions', async ({ page }) => {
     b: 2,
     c: true,
   };
-
 
   // Some expect's does not need await - those not related to UI (simple explanation)
   expect('text').toContain('substring');

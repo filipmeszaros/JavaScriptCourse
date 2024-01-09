@@ -29,17 +29,17 @@
 * Install multiple browsers when you want to test with multiple browsers, e.g. `npx playwright install firefox webkit`
 * When it fails to launch a browser, it might be because your antivirus has blocked it as a thread
 
-### Asynchronous vs. Synchronous
+### Asynchronous vs. Synchronous processes
 The benefit of JavaScript is that it offers the best of both worlds: Single-thread and multi-thread, blocking and non-blocking. 
 With this flexibility, programmers can write code in a single programming language instead of two�one for synchronous operations and another for asynchronous operations.
 More details can be found [here](https://www.mendix.com/blog/asynchronous-vs-synchronous-programming/).
 
-#### Synchronous
+#### Synchronous process
 Synchronous tasks happen in order � you must finish the first job before moving on to the next.
 Synchronous is a blocking architecture, so the execution of each operation depends on completing the one before it.
 Each task requires an answer before moving on to the next iteration.
 
-#### Asynchronous
+#### Asynchronous process
 Asynchronous is a non-blocking architecture, which means it doesn�t block further execution while one or more operations are in progress.
 With async programming, multiple related operations can run concurrently without waiting for other tasks to complete. 
 
@@ -67,3 +67,18 @@ You can use these commands to execute tests:
 * `npx playwright test --headed` - runs the tests in HEADed mode (non-headless)
 * `npx playwright test --debug` - runs the tests in debug mode
 * `npx playwright show-report` - shows report of previously executed tests
+
+## Codegen feature 
+Playwright can record your actions on a given website and generate a code that can be used for automation.
+To generate a code on given page based on your actions, you can execute Playwright with command
+`npx playwright codegen https://webpage.com`
+
+## Trace feature
+You can save a trace of given test (via configuration options) that will save a ZIP file with all details of given test which you can find in test-results folder or on test report.
+You can then open this ZIP file locally or upload it to `https://trace.playwright.dev/` to analyze your test.
+Trace provides details and screenshots of each step of given test.  
+Trace contains:  
+`Before` - State and screenshot of the state before our action  
+`Action` - Action that was provided for each step  
+`After` - State and screenshot of the state after our action  
+Along with network tab, and other useful things for each line of code.
