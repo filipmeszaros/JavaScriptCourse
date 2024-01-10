@@ -67,6 +67,17 @@ You can use these commands to execute tests:
 * `npx playwright test --headed` - runs the tests in HEADed mode (non-headless)
 * `npx playwright test --debug` - runs the tests in debug mode
 * `npx playwright show-report` - shows report of previously executed tests
+* `npx playwright test --ui` - opens UI test runner page (for running and debugging tests) with all available tests
+
+## Debugger
+You can open Playwright debugger in 2 ways:  
+* run test with added `--debug` parameter
+* using `await page.pause()` method, that will pause a test on given line and open a debugger
+
+With Playwright debugger, you can:
+* Step over        - proceed to next line of code and execute it
+* Pick locator     - use this tool to find a locator of given element of currently opened webpage
+* Explore elements - show CSS selector or Xpath for selected web element, or validate your own selectors
 
 ## Codegen feature 
 Playwright can record your actions on a given website and generate a code that can be used for automation.

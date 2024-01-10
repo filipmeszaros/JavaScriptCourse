@@ -25,3 +25,38 @@ test('Playwright locators test', async ({ page }) => {
   await expect(page.getByTitle('Issues count')).toHaveText('25 issues'); // For <span title="Issues count">Something</span>
   await page.getByTestId('directions').click();                // For <div data-testid="directions">
 });
+
+test('Special Playwright locators', async ({ page }) => {
+  await page.goto('https://rahulshettyacademy.com/angularpractice/');
+
+  // Allows locating input elements by the text of the associated by HTML label
+  // 1, <label> tag  
+  // 2, "aria-labely" attribute 
+  // 3, aria-labelledby element
+  await page.getByLabel("Check me out if you Love IceCreams!").click(); 
+  await page.getByLabel("Employed").check();
+  await page.getByLabel("Gender").selectOption("Female");
+
+  // Allows locating input elements by the placeholder text
+  // E.g. <input type="password" placeholder="Enter your password here">
+  await page.getByPlaceholder("Enter your password here").fill("abc123");
+
+  // Allows locating elements by their role (button/link/heading/listbox/slider/searchbox/window/input... and many many more)
+  // 1, [ARIA role](https://www.w3.org/TR/wai-aria-1.2/#roles)
+  // 2, [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes)
+  // 3, [accessible name](https://w3c.github.io/accname/#dfn-accessible-name)
+  await page.getByRole("button", { name: 'Submit' }).click();  // button with name "Submit"
+  await page.getByRole("link",{ name : "Shop" }).click();      // clickable link with text "Shop"
+  await page.getByRole('heading', { name: /enter/i }).click(); // heading with regex containing "enter"
+
+  // Allows locating elements that contains given text
+  await page.getByText("Success! The Form has been submitted successfully!.").isVisible();
+});
+
+test('Playwright locators filtering', async ({ page }) => {
+  const allCards = page.locator('app-card'); // locator containing multiple elements
+
+  // Lets filter within all elements and find those that we need and then find a button on this element and click on it
+  await allCards.filter({hasText: 'Nokia Edge'}).getByRole("button").click(); // Filter all elements and find those with given text
+  await allCards.filter({hasNotText: 'Error'}).getByRole("button").click();   // Filter all elements and find those without given text
+});

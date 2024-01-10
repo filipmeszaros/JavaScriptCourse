@@ -8,6 +8,8 @@ const { test, expect } = require('@playwright/test');
  * See: https://playwright.dev/docs/actionability
  * 
  * For example method .textContent() waits until element is loaded, but method .allTextContents() does not.
+ * If method does not have an auto wait, we need to wait for that element manually for example by
+ * await dropdown.waitFor();
  */
 test('Playwright auto-waiting mechanisms', async ({ page }) => {
   // Open 9gag.com and try to get titles of all pictures shown
