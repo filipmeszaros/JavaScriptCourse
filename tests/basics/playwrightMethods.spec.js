@@ -14,6 +14,7 @@ test('Playwright methods test - inputs', async ({ page }) => {
   await element.fill('Username CSS locator');    // Fills the input with given keys - faster
   await element.pressSequentially('Sequential'); // Fills the input with given keys by pressing sequentially - slower
   await element.click();                         // Clicks on element
+  await element.hover();                         // Hover over web element (to open a submenu, for example)
   const errorText = await page.locator('div[style*="none"]').textContent(); // Returns text of the element
 });
 
@@ -44,6 +45,13 @@ test('Playwright element methods', async ( { page }) => {
   const isEditable = element.isEditable(); // returns true if element is editable
 });
 
+
+test('Playwright page browser methods', async ( {page }) => {
+  await page.goto('https://www.google.com');
+  await page.goto('https://www.google.cz');
+  await page.goBack();      // Goes back to previous page
+  await page.goForward();   // Goes forward to next page
+});
 
 test('Javascript and TypeScript methods', async ( {page }) => {
   const elementText = await page.locator('#username').textContent();

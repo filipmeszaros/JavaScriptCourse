@@ -16,7 +16,9 @@ test('Playwright locators test', async ({ page }) => {
   await page.locator('.list-elements').first().click();   // Returns  first element from a list of elements and clicks on it
   await page.locator('.list-elements').nth(1).click();    // Returns second element from a list of elements and clicks on it
   await page.locator('.list-elements').last().click();    // Returns last element from a list of elements and clicks on it
-  
+  await page.locator('li a[href="lifetime-access"]:visible').click(); // Click on a locator with given CSS selector that is visible (in case there are multiple of them)
+
+
   await page.getByRole('button', { name: 'Sign in' }).click(); // For <button name='Sign in'>
   await page.getByRole('button', { name: /submit/i }).click(); // For <button> with name containing RegExp "submit"
   await page.getByLabel('Password').fill('secret');            // For <label>Password</label>
