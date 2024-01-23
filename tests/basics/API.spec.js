@@ -1,10 +1,10 @@
 // @ts-check
 const { test, expect, request } = require('@playwright/test'); // you need to include "request" object that is used for API methods
 
-const loginCredentials = { 
-                            "userEmail": "anshika@gmail.com", 
-                            "userPassword" : "Iamking@000"
-                         };
+const loginCredentials = {
+  "userEmail": "anshika@gmail.com",
+  "userPassword": "Iamking@000"
+};
 
 let token; // Global variable that we will use to hold session token
 
@@ -28,13 +28,13 @@ let token; // Global variable that we will use to hold session token
 /**
  * Instead of logging to the https://www.rahulshettyacademy.com/client/auth/login via UI, let's log in via API call
  */
-test.beforeAll('Get session token for login', async () => {  
+test.beforeAll('Get session token for login', async () => {
   const apiContext = await request.newContext();  // Create a new context
   // Use this context to submit a POST request to given URL with given body (data).
   // Mandatory parameter is URL, and all options goes to an object which is second parameter.
-  const loginResponse = await apiContext.post('https://rahulshettyacademy.com/api/ecom/auth/login', { 
+  const loginResponse = await apiContext.post('https://rahulshettyacademy.com/api/ecom/auth/login', {
     data: loginCredentials,                       // This is how to set POST data
-    headers: {'Content-Type': 'application/json'} // This is how to set request headers
+    headers: { 'Content-Type': 'application/json' } // This is how to set request headers
   });
 
   expect(loginResponse.ok()).toBeTruthy(); // Let's test that POST request returned 2XX status code indicating success
