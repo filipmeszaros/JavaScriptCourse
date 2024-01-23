@@ -12,6 +12,11 @@ let token; // Global variable that we will use to hold session token
  * Tests to show how to handle API testing in Playwright, on an example with session token.
  * Session token is a hash that will be saved to a cookies once you log in, and it allows you to navigate to other subpages without additional logins.
  * Note: it is better to create a class ApiUtils with these API methods, rather than having everything in this file.
+ * Note: You can debug API calls with Traces feature of Playwright (@see {@link Playwright.md}) to see all endpoints, data, headers, etc.
+ * Note: You can even debug API calls with "debug npx script" option, but you need to specify test in package.json, for example like this:
+ * "scripts" : {  
+ *    "test": "npx playwright test tests/basics/API.spec.js --headed"
+ * }
  * 
  * Scenario: 1, We will use API POST request to submit our login credentials of our page
  *           2, We will save POST response, and parse session token from it
