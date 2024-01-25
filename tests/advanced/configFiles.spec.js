@@ -11,7 +11,7 @@ const { test } = require('@playwright/test');
 const dataSet = JSON.parse(JSON.stringify(require('./testData.json')));
 
 test('Playwright config file loading test', async () => {
-    console.log("Username loaded from config is: " + dataSet.username);
-    console.log("URL loaded from config is: " + dataSet.url);
-    console.log("Port loaded from config is: " + dataSet.port);
+    console.log("Username loaded from config is: " + dataSet[0].username);
+    console.log("URL loaded from config is: " + dataSet[0].url);
+    console.log("Port loaded from config is: " + dataSet[0].port);
 });

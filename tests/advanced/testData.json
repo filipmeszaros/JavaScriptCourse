@@ -1,5 +1,17 @@
-{ 
-    "username" : "my username",
-    "url" : "https://my.url",
-    "port" : 12345
-}
+[
+    { 
+        "username" : "my username",
+        "url" : "https://my.url",
+        "port" : 12345
+    },
+    {
+        "username" : "my username 2",
+        "url" : "https://my.url",
+        "port" : 123456
+    },
+    {
+        "username" : "my username 3",
+        "url" : "https://my.url",
+        "port" : 123456
+    }
+]
