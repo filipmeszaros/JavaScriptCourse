@@ -22,6 +22,9 @@ module.exports = defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
+  /* Ignore HTTP errors when website is not using SSL */
+  //ignoreHTTPSErrors: true,
+
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /** If we want to use headless mode or no */
@@ -31,7 +34,8 @@ module.exports = defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'retain-on-failure', // Retains trace only for failed tests
-    screenshot: 'off',
+    screenshot: 'off', // "on" - for screenshots every time; "only-on-failure" - screenshots only on failure, "off" - disabled
+    video: 'off' // "on" - record video for all tests; "only-on-failure" - record video on failure, "off" - disabled
   },
 
   /* Configure projects for major browsers */
@@ -39,6 +43,7 @@ module.exports = defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+      // viewport: { width: 1280, height: 720 }, // Specify size of a browser window, either here or directly for a test or test file
     },
 
     {

@@ -23,6 +23,7 @@
     * each test has an extension *.spec.js*.
     * *playwrightDefaultExample.spec.js* is an example test containing all methods directly created by Playwright
 * `playwright-config.js` - file with Playwright configuration (test directories, browsers, etc.)
+* `test-results` - shows test results, screenshots, videos, traces, etc. of executed tests
 
 
 ### Troubleshooting
@@ -63,11 +64,12 @@ By default, all tests in all browsers (both specified in file *playwright.config
 You can use these commands to execute tests:
 * `npx playwright test` - runs the tests specified in *playwright.config.js* configuration
 * `npx playwright test directory/fileName.spec.js` - runs the tests of a specified file
-* `npx playwright test --project=chromium` - runs the tests only on Desktop Chrome
+* `npx playwright test --project=chromium` - runs the tests only on Desktop Chrome (only project with name chromium)
 * `npx playwright test --headed` - runs the tests in HEADed mode (non-headless)
 * `npx playwright test --debug` - runs the tests in debug mode
 * `npx playwright show-report` - shows report of previously executed tests
 * `npx playwright test --ui` - opens UI test runner page (for running and debugging tests) with all available tests
+* `npx playwright test --config=debugging.config.js` - runs tests with our specified config file, instead of default one
 
 
 ## Debugger
