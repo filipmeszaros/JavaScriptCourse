@@ -9,12 +9,12 @@
 - Traces feature: allows you to trace your test. See screenshot of before/after each action, etc.
 - Ability to generate code by recording what you do from the UI
 
-### Installation
+
+## Installation
 1. Download and install [NodeJS](https://nodejs.org/en/download)
 2. Download and install MS Visual Studio Code
 3. Install extension `Playwright Test for VSCode`
 4. Create a new NodeJS Playwright project with all dependencies with `npm init playwright`
-
 
 
 ### Folder/file structure
@@ -29,7 +29,7 @@
 * Install multiple browsers when you want to test with multiple browsers, e.g. `npx playwright install firefox webkit`
 * When it fails to launch a browser, it might be because your antivirus has blocked it as a thread
 
-### Asynchronous vs. Synchronous processes
+## Asynchronous vs. Synchronous processes
 The benefit of JavaScript is that it offers the best of both worlds: Single-thread and multi-thread, blocking and non-blocking. 
 With this flexibility, programmers can write code in a single programming language instead of two�one for synchronous operations and another for asynchronous operations.
 More details can be found [here](https://www.mendix.com/blog/asynchronous-vs-synchronous-programming/).
@@ -68,6 +68,7 @@ You can use these commands to execute tests:
 * `npx playwright test --debug` - runs the tests in debug mode
 * `npx playwright show-report` - shows report of previously executed tests
 * `npx playwright test --ui` - opens UI test runner page (for running and debugging tests) with all available tests
+
 
 ## Debugger
 You can open Playwright debugger in 2 ways:  
