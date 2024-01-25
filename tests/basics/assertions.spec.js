@@ -34,8 +34,8 @@ test('Playwright assertions test - generic assertions', async ({ page }) => {
   expect(valueObj).toMatchObject({ a: 1, c: true }); // Expect that objects will be matching
   expect(myFunction()).toThrow(/something/);         // Expect that function will thrown an error matching regular expression
 
-  expect(valueObj).toEqual({a: 1, b: 2, c: true});            // Compares objects by performing "deep equality" checks
-  expect(valueObj).toBe({a: 1, b: 2, c: true});               // Compares objects by performing "reference" checks
+  expect(valueObj).toEqual({ a: 1, b: 2, c: true });            // Compares objects by performing "deep equality" checks
+  expect(valueObj).toBe({ a: 1, b: 2, c: true });               // Compares objects by performing "reference" checks
   expect([1, 2, 3]).toEqual(expect.arrayContaining([3, 1]));  // Expects that array contains all elements from other array in any order
 });
 
@@ -48,7 +48,7 @@ test('Playwright assertions test - locator assertions', async ({ page }) => {
   // Note: for any of these methods, you can use ".not" to negate the condition of these assertions
   await expect(locator).toHaveText('Submitted');          // Expect element to have text
   await expect(locator).toHaveValue('Submitted');         // Expect element to have value
-  await expect(locator).toHaveValues(['R','G','B']);      // Expect list of elements to have values
+  await expect(locator).toHaveValues(['R', 'G', 'B']);      // Expect list of elements to have values
   await expect(locator).toContainText('Loading');         // Expect element to contain text
   await expect(locator).toHaveAttribute('attr', 'value'); // Expect element to have attribute with given value, e.g. <div attribute="value">
   await expect(locator).toHaveAttribute('att');           // Expect element to have attribute with any value
@@ -67,7 +67,7 @@ test('Playwright assertions test - locator assertions', async ({ page }) => {
   await expect(locator).toBeInViewport();                  // Expect element to be in viewport
   await expect(locator).toHaveClass('invisible');          // Expect element to have class="invisible"
   await expect(list).toHaveCount(3);                       // Expect list of elements to have 3 elements
-  await expect(locator).toHaveCSS('display','visible');    // Expect element to have CSS style display with value visible
+  await expect(locator).toHaveCSS('display', 'visible');    // Expect element to have CSS style display with value visible
   await expect(locator).toHaveJSProperty('loaded', true);  // Expect element have given JS property
   await expect(locator).toHaveScreenshot('file.png');      // Expect loaded element screenshot is the same as given file
 

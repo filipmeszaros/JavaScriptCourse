@@ -10,7 +10,7 @@ test('Verify we are logged in', async ({ page }) => {
     await expect(homePage.logoutButton).toBeVisible();
 });
 
-test('Test adding product to cart', async ({page}) => {
+test('Test adding product to cart', async ({ page }) => {
     const homePage = new HomePage(page);
     await homePage.searchProductAddCart("Zara Coat 4");
 });

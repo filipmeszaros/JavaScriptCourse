@@ -27,7 +27,7 @@ test.beforeEach(async ({ context }) => {
 
 test('Security test for an online shop - intercept order details and try to load an order details for another random user', async ({ page }) => {
     page.on('response', response => console.log(response.url(), response.status()));  // Print all API responses URL with it's status code to console output
-    
+
     //login and open orders page
     await page.goto("https://rahulshettyacademy.com/client");
     await page.locator("#userEmail").fill("anshika@gmail.com");

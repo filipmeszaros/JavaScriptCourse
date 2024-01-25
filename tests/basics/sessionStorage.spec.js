@@ -1,5 +1,5 @@
 // @ts-check
-const { test, expect } = require('@playwright/test'); 
+const { test, expect } = require('@playwright/test');
 
 /**
  * You can have a web application that can use multiple cookies or session tokens used for storing a session.
@@ -12,7 +12,7 @@ const { test, expect } = require('@playwright/test');
 
 let webContext;
 
-test.beforeAll('Login and store session to a file', async ({browser}) => {  
+test.beforeAll('Login and store session to a file', async ({ browser }) => {
   const context = await browser.newContext();
   const page = await context.newPage();
 
@@ -20,10 +20,10 @@ test.beforeAll('Login and store session to a file', async ({browser}) => {
   // ... code is missing ...
 
   // Store a state of a session to a given file
-  await context.storageState({path : 'files/state.json'}); 
-  
+  await context.storageState({ path: 'files/state.json' });
+
   // Load a state of a session from already saved file and create a new context
-  webContext = await browser.newContext({storageState: 'files/statej.json'});
+  webContext = await browser.newContext({ storageState: 'files/statej.json' });
 });
 
 test('Test with invoked session data from json file', async () => {

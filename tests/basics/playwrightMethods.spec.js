@@ -35,25 +35,25 @@ test('Playwright methods test - elements', async ({ page }) => {
   const titlesArray = await element.allTextContents(); // Returns an array of text of all elements matched by locator
 });
 
-test('Playwright element methods', async ( { page }) => {
+test('Playwright element methods', async ({ page }) => {
   const element = page.locator('#username');
-  const isVisible  = element.isVisible();  // returns true if element is visible
-  const isHidden   = element.isHidden();   // returns true if element is hidden
-  const isEnabled  = element.isEnabled();  // returns true if element is enabled
+  const isVisible = element.isVisible();  // returns true if element is visible
+  const isHidden = element.isHidden();   // returns true if element is hidden
+  const isEnabled = element.isEnabled();  // returns true if element is enabled
   const isDisabled = element.isDisabled(); // returns true if element is disabled
-  const isChecked  = element.isChecked();  // returns true if element is checked
+  const isChecked = element.isChecked();  // returns true if element is checked
   const isEditable = element.isEditable(); // returns true if element is editable
 });
 
 
-test('Playwright page browser methods', async ( {page }) => {
+test('Playwright page browser methods', async ({ page }) => {
   await page.goto('https://www.google.com');
   await page.goto('https://www.google.cz');
   await page.goBack();      // Goes back to previous page
   await page.goForward();   // Goes forward to next page
 });
 
-test('Javascript and TypeScript methods', async ( {page }) => {
+test('Javascript and TypeScript methods', async ({ page }) => {
   const elementText = await page.locator('#username').textContent();
   const containsSubstring = elementText?.includes('Substring'); // Returns true of given text contains given substring
 });

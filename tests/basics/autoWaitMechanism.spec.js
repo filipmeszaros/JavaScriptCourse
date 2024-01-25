@@ -18,7 +18,7 @@ test('Playwright auto-waiting mechanisms', async ({ page }) => {
 
   // Problem: allTextContents() does not have auto-wait implemented (see url above), which means you can get 0 results!!!
   //const pictureTitles = await pictureTitlesLocator.allTextContents();
-  
+
   // Solution 1: use something with auto-wait, e.g. textContent() like this: "await pictureTitlesLocactor.first().textContent()"
   console.log('First title: ' + await pictureTitlesLocator.first().textContent());
 
@@ -27,5 +27,5 @@ test('Playwright auto-waiting mechanisms', async ({ page }) => {
   await page.waitForLoadState('domcontentloaded'); // Waits for page "DOMContentLoaded" event to be fired
   await page.waitForLoadState('networkidle');      // DISCOURAGED: Waits until there are no network connections for at least `500` ms
   await pictureTitlesLocator.waitFor();            // Waits until locator will be visible by default
-  await pictureTitlesLocator.waitFor({state: 'hidden'});  // Waits until locator will be hidden
+  await pictureTitlesLocator.waitFor({ state: 'hidden' });  // Waits until locator will be hidden
 });

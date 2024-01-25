@@ -19,7 +19,7 @@ function addNumbers(a, b) {
 /**
  * Anonymous function to return sum of numbers
  */
-let sumOfNumbers1 = function(a, b) {
+let sumOfNumbers1 = function (a, b) {
     return a + b;
 }
 

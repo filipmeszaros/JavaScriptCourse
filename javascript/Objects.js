@@ -8,7 +8,7 @@ let person = {
     lastname: 'Meszaros',
     yearOfBirth: 1991,
     bankAccountNumber: undefined,
-    fullName : function () {
+    fullName: function () {
         return this.name + ' ' + this.lastname;
     }
 }

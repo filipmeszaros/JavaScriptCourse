@@ -24,14 +24,14 @@ var variable1 = 2;
 var variable1 = 4; // re-declaring of variable
 variable1 = 6;             // re-assigning of variable
 
-console.log('Data type of variable2 is: ' + typeof(variable1));
+console.log('Data type of variable2 is: ' + typeof (variable1));
 console.log('Variable value is: ' + variable1);
 
 let str1 = "He is called 'Johnny'";
 
 
 // Object:
-const person = {firstName:"John", lastName:"Doe"};
+const person = { firstName: "John", lastName: "Doe" };
 
 // Array object:
 const cars = ["Saab", "Volvo", "BMW"];
@@ -72,7 +72,7 @@ function greet2() {
     let b = 'hello';
 
     // variable c cannot be used here
-    if(b == 'hello'){
+    if (b == 'hello') {
         // variable c can be used here
         let c = 'world';
         console.log(b + ' ' + c);

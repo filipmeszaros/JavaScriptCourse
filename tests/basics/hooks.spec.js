@@ -83,12 +83,12 @@ test.describe.skip('Skipped tests - will not be executed', () => {
 });
 
 
-test('This will execute test and expect that it will fail', async ({ page}) => {
+test('This will execute test and expect that it will fail', async ({ page }) => {
   test.fail();
   // Test which is not ready yet, or which is testing broken functionality
 });
 
-test('This will execute test and expect that it will fail only for administrators', async ({ page}) => {
+test('This will execute test and expect that it will fail only for administrators', async ({ page }) => {
   test.fail(userRole === 'Administrator', 'This test is failing for Administratos'); // you can provide a condition to test.fail() 
   // Test which is not ready yet, or which is testing broken functionality
 });

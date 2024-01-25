@@ -35,7 +35,7 @@ test('Special Playwright locators', async ({ page }) => {
   // 1, <label> tag  
   // 2, "aria-labely" attribute 
   // 3, aria-labelledby element
-  await page.getByLabel("Check me out if you Love IceCreams!").click(); 
+  await page.getByLabel("Check me out if you Love IceCreams!").click();
   await page.getByLabel("Employed").check();
   await page.getByLabel("Gender").selectOption("Female");
 
@@ -48,7 +48,7 @@ test('Special Playwright locators', async ({ page }) => {
   // 2, [ARIA attributes](https://www.w3.org/TR/wai-aria-1.2/#aria-attributes)
   // 3, [accessible name](https://w3c.github.io/accname/#dfn-accessible-name)
   await page.getByRole("button", { name: 'Submit' }).click();  // button with name "Submit"
-  await page.getByRole("link",{ name : "Shop" }).click();      // clickable link with text "Shop"
+  await page.getByRole("link", { name: "Shop" }).click();      // clickable link with text "Shop"
   await page.getByRole('heading', { name: /enter/i }).click(); // heading with regex containing "enter"
 
   // Allows locating elements that contains given text
@@ -59,6 +59,6 @@ test('Playwright locators filtering', async ({ page }) => {
   const allCards = page.locator('app-card'); // locator containing multiple elements
 
   // Lets filter within all elements and find those that we need and then find a button on this element and click on it
-  await allCards.filter({hasText: 'Nokia Edge'}).getByRole("button").click(); // Filter all elements and find those with given text
-  await allCards.filter({hasNotText: 'Error'}).getByRole("button").click();   // Filter all elements and find those without given text
+  await allCards.filter({ hasText: 'Nokia Edge' }).getByRole("button").click(); // Filter all elements and find those with given text
+  await allCards.filter({ hasNotText: 'Error' }).getByRole("button").click();   // Filter all elements and find those without given text
 });
