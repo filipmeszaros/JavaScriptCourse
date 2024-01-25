@@ -1,6 +1,4 @@
 # Page Object Model (POM)
-
-
 Page Object Model, also known as POM, is a design pattern that creates an object repository for storing all web elements. It helps reduce code duplication and improves test case maintenance.
 In Page Object Model, consider each web page of an application as a class file. Each class file will contain only corresponding web page elements. Using these elements, testers can perform operations on the website under test.
 
@@ -14,6 +12,3 @@ Home page is one HomePage class with `filterUsers()`, `accessOptions()` methods,
 
 ### Tests
 Every test in your repository uses page objects directly to test something.
-
-## Page object manager
-Concept in POM which allows you to manage all page objects, and it acts as a library of all page objects. 

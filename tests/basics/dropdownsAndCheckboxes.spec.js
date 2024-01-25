@@ -18,7 +18,7 @@ test('Dropdowns test', async ({ page }) => {
 test('Checkboxes test', async ({ page }) => {
   await page.goto('https://rahulshettyacademy.com/loginpagePractise');
 
-  const checkbox = page.locator(".radiotextsty").last(); 
+  const checkbox = page.locator(".radiotextsty").last();
   await checkbox.click();
   await page.locator("#okayBtn").click();
   await expect(checkbox).toBeChecked();  // Test that checkbox is really checked
