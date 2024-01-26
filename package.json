@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "Repository for learning JavaScript and PlayWright.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "regression": "npx playwright test",
+    "smokeTests": "npx playwright test --grep @Smoke",
+    "apiTests": "npx playwright test --grep @API",
+    "safari": "npx playwright test --config playwright-safari.config.js --project=safari"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

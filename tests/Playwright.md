@@ -40,6 +40,7 @@ You can use these commands to execute tests:
 * `npx playwright test directory/fileName.spec.js` - runs the tests of a specified file
 * `npx playwright test --grep @Smoke` - runs test which contains "@Smoke" string in test method name (useful for test grouping)
 * `npx playwright test --project=chromium` - runs the tests only on Desktop Chrome (only project with name chromium)
+* `npm run smokeTests` - runs "smokeTests" script specified within file *package.json*
 * `npx playwright test --headed` - runs the tests in HEADed mode (non-headless)
 * `npx playwright test --debug` - runs the tests in debug mode
 * `npx playwright show-report` - shows report of previously executed tests
