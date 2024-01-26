@@ -16,12 +16,13 @@ module.exports = defineConfig({
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
-  /* Retry on CI only */
+  /* Retry on CI only - 0 = if test fails, don't retry; 0 = if test fails, try to re-execute test max 2 times to see if it passes */
   retries: process.env.CI ? 2 : 0,
-  /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
-  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
+  /* Number of parallel test workers - 1 for CI; 3 for normal execution */
+  workers: process.env.CI ? 1 : 3,
+  /* Reporter to use (html/line/list/json/dot/blob/json/junit/github/allure/...). See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
+
   /* Ignore HTTP errors when website is not using SSL */
   //ignoreHTTPSErrors: true,
 

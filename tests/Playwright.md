@@ -8,6 +8,7 @@
 - Browser context feature: you can export the state of a browser and import it to any other browser
 - Traces feature: allows you to trace your test. See screenshot of before/after each action, etc.
 - Ability to generate code by recording what you do from the UI
+- Parallel test execution
 
 
 ## Installation
@@ -30,33 +31,6 @@
 * Install multiple browsers when you want to test with multiple browsers, e.g. `npx playwright install firefox webkit`
 * When it fails to launch a browser, it might be because your antivirus has blocked it as a thread
 
-## Asynchronous vs. Synchronous processes
-The benefit of JavaScript is that it offers the best of both worlds: Single-thread and multi-thread, blocking and non-blocking. 
-With this flexibility, programmers can write code in a single programming language instead of two�one for synchronous operations and another for asynchronous operations.
-More details can be found [here](https://www.mendix.com/blog/asynchronous-vs-synchronous-programming/).
-
-#### Synchronous process
-Synchronous tasks happen in order � you must finish the first job before moving on to the next.
-Synchronous is a blocking architecture, so the execution of each operation depends on completing the one before it.
-Each task requires an answer before moving on to the next iteration.
-
-#### Asynchronous process
-Asynchronous is a non-blocking architecture, which means it doesn�t block further execution while one or more operations are in progress.
-With async programming, multiple related operations can run concurrently without waiting for other tasks to complete. 
-
-### Which one is JavaScript?
-JavaScript is by defailt asynchronous non-blocking programming language, which means that multiple commands can be run at the same time.
-That's why we need to use keyword *await* in many cases, to wait until asynchronous operation will be over, so that we can carry on with the next one.
-Every time you use *await* in a function, you need to mark it as *async*.
-E.g.
-```js
-test('First test', async ( {page} ) => {
-   await page.goto('https://playwright.dev/'); // use await to wait for the end of operation
-   await page.getByRole('link', { name: 'Get started' }).click();
-   await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
-});
-```
-
 
 ## Test execution
 Playwright tests within a file (methods) are executed sequentially, while test files are executed in parallel.  
@@ -64,12 +38,23 @@ By default, all tests in all browsers (both specified in file *playwright.config
 You can use these commands to execute tests:
 * `npx playwright test` - runs the tests specified in *playwright.config.js* configuration
 * `npx playwright test directory/fileName.spec.js` - runs the tests of a specified file
+* `npx playwright test --grep @Smoke` - runs test which contains "@Smoke" string in test method name (useful for test grouping)
 * `npx playwright test --project=chromium` - runs the tests only on Desktop Chrome (only project with name chromium)
 * `npx playwright test --headed` - runs the tests in HEADed mode (non-headless)
 * `npx playwright test --debug` - runs the tests in debug mode
 * `npx playwright show-report` - shows report of previously executed tests
 * `npx playwright test --ui` - opens UI test runner page (for running and debugging tests) with all available tests
 * `npx playwright test --config=debugging.config.js` - runs tests with our specified config file, instead of default one
+
+### Parallel vs Serial test execution
+By default, test classes are running in parallel with multiple workers, while test methods within one test file are running sequentially.  
+Number of test workers can be edited in Playwright configuration via `workers` parameter, or with command line parameter `--workers <NUM>`.    
+If you want test methods within one test file to run in parallel, you can add this annotation before those tests, and they will run in parallel:  
+`test.describe.configure({mode: 'parallel'});`  
+Similarly, if you need to change configuration for a test, you can do that with annotation:  
+`test.describe.configure({ retries: 2, timeout: 20_000 });`.  
+There is a possibility to mark inter-dependent test methods as serial, which will SKIP all tests that are following after test that failed. For this, you can use annotation:   
+`test.describe.configure({mode: 'serial'});`  
 
 
 ## Debugger
@@ -96,3 +81,19 @@ Trace contains:
 `Action` - Action that was provided for each step  
 `After` - State and screenshot of the state after our action  
 Along with network tab, and other useful things for each line of code.
+
+## Reporting
+Playwright offers multiple reportings which shows test details, possibly even with screenshots and videos or traces.  
+Reporting can be set up in Playwright configuration or via `--reporting=<reporter>` parameter, and can be one of:  
+* `list`   - prints one test in one line (default for non-CI)
+* `line`   - uses single line to report last test and prints only failures (does not spam so much)
+* `html`   - renders HTML page that can contain even screenshots, videos, traces
+* `dot`    - shortest one. Uses dot for each test (default for CI)
+* `allure` - 3rd party reporter for which you need to install Allure first
+* `blob`   - contains all details about tests and can be used to produce any other reports 
+* `json`   - produces JSON object with test results
+* `junit`  - produces a JUnit-style XML report
+* `github` - reporter to get automatic failure annotations when running in GitHub actions
+* Other third party reporters, see: https://playwright.dev/docs/test-reporters
+
+

@@ -20,5 +20,3 @@ test('Valid login test', async ({ page }) => {
     await loginPage.doLogin(username, password);
     await expect(loginPage.loginText).toBeHidden(); // After valid login, we are no longer on login page
 });
-
-
