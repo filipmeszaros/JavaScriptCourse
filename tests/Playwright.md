@@ -54,6 +54,7 @@ If you want test methods within one test file to run in parallel, you can add th
 `test.describe.configure({mode: 'parallel'});`  
 Similarly, if you need to change configuration for a test, you can do that with annotation:  
 `test.describe.configure({ retries: 2, timeout: 20_000 });`.  
+Alternatively, you can use Playwright configuration `fullyParallel: true` to set up parallelism within test files.  
 There is a possibility to mark inter-dependent test methods as serial, which will SKIP all tests that are following after test that failed. For this, you can use annotation:   
 `test.describe.configure({mode: 'serial'});`  
 
