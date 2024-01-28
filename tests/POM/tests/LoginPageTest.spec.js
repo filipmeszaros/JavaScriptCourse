@@ -10,6 +10,7 @@ test('Invalid login test', async ({ page }) => {
     await loginPage.accessPage();
     await loginPage.doLogin(username, password);
     await expect(loginPage.loginText).toBeVisible(); // After invalid login, we should still be on login page
+    await expect(page.locator('div[role="alert"]')).toContainText("Incorrect email or password");
 });
 
 test('Valid login test', async ({ page }) => {

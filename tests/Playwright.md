@@ -97,5 +97,3 @@ Reporting can be set up in Playwright configuration or via `--reporting=<reporte
 * `junit`  - produces a JUnit-style XML report
 * `github` - reporter to get automatic failure annotations when running in GitHub actions
 * Other third party reporters, see: https://playwright.dev/docs/test-reporters
-
-

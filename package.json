@@ -1,19 +1,23 @@
 {
   "name": "javascriptcourse",
   "version": "1.0.0",
-  "description": "Repository for learning JavaScript and PlayWright.",
+  "author": "Filip Meszaros",
+  "description": "Repository for learning JavaScript and PlayWright",
   "main": "index.js",
   "scripts": {
     "regression": "npx playwright test",
     "smokeTests": "npx playwright test --grep @Smoke",
     "apiTests": "npx playwright test --grep @API",
-    "safari": "npx playwright test --config playwright-safari.config.js --project=safari"
+    "safari": "npx playwright test --config playwright-safari.config.js --project=safari",
+    "cucumber": "npx cucumber-js --retry 1 --tag '@Regression' --exit"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.40.0",
     "@types/node": "^20.9.4"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^10.3.1"
   }
 }

@@ -8,5 +8,4 @@ Disclaimer: this is still in progress
 2. Read about Playwright basics in [folder tests/basics](tests/basics/) and in file [Playwright.md](tests/Playwright.md)
 3. Read about advanced Playwright features in [folder tests/advanced](tests/advanced/)
 4. Read about Page Object Model design pattern located in [folder tests/POM](tests/POM/) and in file [POM.md](tests/POM/POM.md)
-
-
+5. Read about how to integrate Playwright project with Cucumber for Behaviour-Driven Development (BDD) in folder [features](features/) and in file [Cucumber.md](Cucumber.md)
